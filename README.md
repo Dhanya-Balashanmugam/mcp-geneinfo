@@ -24,8 +24,6 @@ It combines data from UniProt and Ensembl APIs, showing useful gene info with an
     - To install the dependencies, run this command in your terminal:
          ```pip install -r requirements.txt```
       
- This will install all the necessary libraries like streamlit, requests, and any others your app needs.
-      
 - Run the app using the below command in your terminal:
 
    ``` streamlit run main.py  ```
