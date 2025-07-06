@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcpatlas"
+version = "0.1.0"
+description = "Get tissue and cancer specific protein expression info from Human Protein Atlas"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "dhanya", email = "dhanyabalashanmugam24@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.25.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.800",
+]
+
+
+
+[project.urls]
+Homepage = "https://github.com/Dhanya-Balashanmugam/mcpatlas"
+Repository = "https://github.com/Dhanya-Balashanmugam/mcpatlas"
+Documentation = "https://github.com/Dhanya-Balashanmugam/mcpatlas#readme"
+Issues = "https://github.com/Dhanya-Balashanmugam/mcpatlas/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mcpatlas*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=mcpatlas --cov-report=term-missing" 
