@@ -1,159 +1,55 @@
-# mcpatlas
+# MCPmed UniProt + Ensembl
 
-Get tissue and cancer specific protein expression info from Human Protein Atlas
+## What’s this?
 
-## Installation
+This is a small web app built using Streamlit that lets you search for genes related to diseases or keywords. It pulls info from two popular bioinformatics sources:
 
-Install the package in development mode:
+-> **UniProt** - for protein and gene names
 
-```bash
-pip install -e .
-```
+-> **Ensembl** - for gene locations and details
 
-Or install from PyPI (when available):
+You just type in a disease or any keyword, and it shows you a list of genes with basic descriptions and where they are on the genome. It also gives you handy links to the full records on UniProt and Ensembl websites.
 
-```bash
-pip install mcpatlas
-```
+## Why did I build this?
 
-## Usage
+The task was to develop an MCP client for a bioinformatics website using the official [MCPmed Cookiecutter template](https://github.com/MCPmed/Cookiecutter-MCPmed). This app was created starting from that template to ensure it fits into the MCP ecosystem and follows the recommended structure.
 
+It combines data from UniProt and Ensembl APIs, showing useful gene info with an easy to use web interface powered by Streamlit.
 
+## How to use
 
+- Clone this repo
 
-### MCP Server
+- Install Python packages from requirements.txt
 
-The package provides an MCP server for integration with MCP-compatible clients:
+- Run the app using the below command in your terminal:
 
-```bash
-# Run the MCP server
-mcpatlas-server
-```
+   ``` streamlit run app.py  ```
 
-The MCP server provides the following tools:
+- Type your disease or keyword in the box and wait for results
 
-- **tool1**: Description of tool1
-- **tool2**: Description of tool2
-- **tool3**: Description of tool3
+- Click on each gene to see more details and open links to official sites
 
+## What’s inside?
 
-### Python API
+- app.py — main Streamlit app that handles everything
 
-```python
-from mcpatlas.main import mcpatlasBridge
+- requirements.txt — list of Python packages needed
 
-# Initialize the bridge
-bridge = mcpatlasBridge()
+The project was bootstrapped using the MCPmed Cookiecutter template to follow best practices and keep things neat
 
-# Use your functionality
-result = bridge.your_method()
-```
+## Notes
 
-## Features
+- Only shows reviewed human genes from UniProt
 
-- **Feature 1**: Description of feature 1
-- **Feature 2**: Description of feature 2
-- **Feature 3**: Description of feature 3
+- Ensembl API adds gene location info (chromosome, strand, etc.)
 
-- **MCP Integration**: Full Model Context Protocol server implementation
-
-
-## API Methods
-
-### Core Methods
-
-- `method1()`: Description of method1
-- `method2()`: Description of method2
-- `method3()`: Description of method3
-
-### Configuration
-
-The package uses a configuration class for settings:
-
-```python
-from mcpatlas.main import mcpatlasConfig, mcpatlasBridge
-
-config = mcpatlasConfig(
-    base_url="https://api.example.com",
-    api_key="your_api_key",
-    timeout=30.0
-)
-
-bridge = mcpatlasBridge(config)
-```
-
-
-## MCP Server Configuration
-
-To use the MCP server with an MCP client, configure it as follows:
-
-```json
-{
-  "mcpServers": {
-    "mcpatlas": {
-      "command": "mcpatlas-server",
-      "env": {}
-    }
-  }
-}
-```
-
-The server will automatically handle:
-- JSON-RPC communication
-- Tool discovery and invocation
-- Error handling and reporting
-
-
-## Development
-
-### Setup Development Environment
-
-```bash
-# Install in development mode with dev dependencies
-pip install -e .[dev]
-
-# Run tests
-pytest
-
-# Format code
-black mcpatlas/
-
-# Type checking
-mypy mcpatlas/
-```
-
-### Project Structure
-
-```
-mcpatlas/
-├── pyproject.toml      # Package configuration
-├── README.md          # This file
-├── LICENSE            # MIT License
-├── mcpatlas/         # Main package
-│   ├── __init__.py    # Package initialization
-│   ├── main.py        # Core functionality
-
-
-│   └── mcp_server.py  # MCP server implementation
-
-└── tests/             # Test files
-    ├── __init__.py
-    └── test_main.py   # Tests for main functionality
-```
+- The UI is simple so anyone can use it quickly without tech knowledge
 
 ## License
 
-MIT License - see LICENSE file for details.
+This project is open source under MIT License.
 
-## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Run the test suite
-6. Submit a pull request
 
-## Support
 
-For issues and questions, please use the GitHub issue tracker. 
