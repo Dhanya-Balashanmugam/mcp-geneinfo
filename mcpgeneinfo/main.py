@@ -38,7 +38,7 @@ def fetch_ensembl(gene_symbol):
     }
 
 def main():
-    st.title("🧬 MCPmed: UniProt + Ensembl Gene Info")
+    st.title("🧬 MCPmed: UniProt + Ensembl ")
 
     keyword = st.text_input("Enter disease or keyword (e.g. cancer, diabetes):")
 
@@ -50,7 +50,7 @@ def main():
             st.warning("No genes found for this keyword.")
             return
 
-        st.header("🧠 Genes and Ensembl Gene Info:")
+        st.header("🧠 Gene Data from UniProt and Ensembl:")
 
         for i, gene in enumerate(genes, 1):
             with st.expander(f"{i}. {gene['gene']} | UniProt ID: {gene['uniprot_id']}"):
